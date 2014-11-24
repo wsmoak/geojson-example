@@ -36,8 +36,8 @@
          <h2>New Item</h2>
          <form name="itemForm" ng-submit="ctrl.add()">
            Description: <input type="text" ng-model="ctrl.item.description"/><br/>
-           Latitude: <input type="number" ng-model="ctrl.item.location.coordinates[0]" /><br/>
-           Longitude: <input type="number" ng-model="ctrl.item.location.coordinates[1]"/><br/>
+           Latitude: <input type="number" ng-model="ctrl.item.location.coordinates[0]" ng-min="-180" ng-max="180" required /><br/>
+           Longitude: <input type="number" ng-model="ctrl.item.location.coordinates[1]" ng-min="-90" ng-max="90" required/><br/>
            <input type="submit" value="Submit" ng-disabled="itemForm.$invalid"/>
         </form>
       </div>
