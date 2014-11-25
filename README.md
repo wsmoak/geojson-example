@@ -1,12 +1,14 @@
-GeoJSON Example
+#GeoJSON Example
 
 AngularJS / Express / mongoDB / NodeJS example of using GeoJSON to store and query location data.
 
+```sh
 npm install
 
 (make sure mongoDB is running locally)
 
 node server.js
+```
 
 The app allows you to add items to the database.  
 
