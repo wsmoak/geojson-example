@@ -2,6 +2,8 @@
 
 AngularJS / Express / mongoDB / NodeJS example of using GeoJSON to store and query location data.
 
+For more information (and screen shots), see [Fun with mongoDB and GeoJSON](http://wsmoak.net/2014/11/24/fun-with-mongodb-and-geojson.html) on [wsmoak.net](http://wsmoak.net).
+
 ```sh
 npm install
 
