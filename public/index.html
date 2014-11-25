@@ -51,7 +51,7 @@
            <input type="submit" value="Submit" ng-disabled="queryForm.$invalid"/>
         </form>
         <p ng-repeat="item in ctrl.queryItems">
-          ID: <span ng-bind="item._id.$oid"></span>
+          ID: <span ng-bind="item._id"></span><br/>
           Description: <span ng-bind="item.description"></span><br/>
           Location Type: <span ng-bind="item.location.type"></span><br/>
           Location Coordinates: <span ng-bind="item.location.coordinates[0]"></span>
