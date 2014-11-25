@@ -45,8 +45,10 @@ app.delete('/api/item/:id', jsonParser, function(req,res) {
   res.type('application/json');
   console.log("delete " + req.params.id );
   items.remove({"_id": ObjectID(req.params.id)},
-    function() {
+    function(err,res) {
       console.log("in callback after remove");
+      console.log(err);
+      console.log(res);
       res.send({"ok":true});
     });
 });
