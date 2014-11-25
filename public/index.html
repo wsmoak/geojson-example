@@ -3,6 +3,7 @@
   <title>GeoJSON Example</title>
   <script src="https://code.angularjs.org/1.3.3/angular.js"></script>
   <script src="client.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css"></link>
 </head>
 <body>
 
@@ -36,8 +37,8 @@
          <h2>New Item</h2>
          <form name="itemForm" ng-submit="ctrl.add()">
            Description: <input type="text" ng-model="ctrl.item.description"/><br/>
-           Latitude: <input type="number" ng-model="ctrl.item.location.coordinates[0]" ng-min="-180" ng-max="180" required /><br/>
-           Longitude: <input type="number" ng-model="ctrl.item.location.coordinates[1]" ng-min="-90" ng-max="90" required/><br/>
+           Latitude: <input type="number" class="latitude" ng-model="ctrl.item.location.coordinates[0]" ng-min="-180" ng-max="180" required /><br/>
+           Longitude: <input type="number" class="longitude" ng-model="ctrl.item.location.coordinates[1]" ng-min="-90" ng-max="90" required/><br/>
            <input type="submit" value="Submit" ng-disabled="itemForm.$invalid"/>
         </form>
       </div>
@@ -46,8 +47,8 @@
         <h2>Query</h2>
          <form name="queryForm" ng-submit="ctrl.inquire()">
            <h3>Show me items inside the square from [0,0] to [
-           <input type="number" size="5" ng-model="ctrl.query.lat" ng-min="-180" ng-max="180" required />, 
-           <input type="number" ng-model="ctrl.query.long" ng-min="-90" ng-max="90" required />]</h3>
+           <input type="number" class="latitude" ng-model="ctrl.query.lat" ng-min="-180" ng-max="180" required />,
+           <input type="number" class="longitude" ng-model="ctrl.query.long" ng-min="-90" ng-max="90" required /> ]</h3>
            <input type="submit" value="Submit" ng-disabled="queryForm.$invalid"/>
         </form>
         <p ng-repeat="item in ctrl.queryItems">
