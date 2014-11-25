@@ -44,7 +44,11 @@ app.post('/api/item', jsonParser, function(req,res) {
 app.delete('/api/item/:id', jsonParser, function(req,res) {
   res.type('application/json');
   console.log("delete " + req.params.id );
-  items.remove({"_id": ObjectID(req.params.id)}, function() { console.log("in callback after remove");});
+  items.remove({"_id": ObjectID(req.params.id)},
+    function() {
+      console.log("in callback after remove");
+      res.send({"ok":true});
+    });
 });
 
 app.post('/api/query', jsonParser, function(req,res) {
