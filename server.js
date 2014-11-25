@@ -56,9 +56,9 @@ app.post('/api/query', jsonParser, function(req,res) {
             { type: 'Polygon', 
               coordinates : [[[0,0],[0,req.body.long],[req.body.lat,req.body.long],[req.body.lat,0],[0,0]]] }}}})
       .toArray(function(err,items){
-        console.log("found items" + items)
+        items.forEach(function(r){console.log(r)});
         res.send(items);
-      }); 
+      });
   });
 
   app.listen(app.get('port'), function(){
