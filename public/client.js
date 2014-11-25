@@ -51,9 +51,15 @@ angular.module('geojsonApp',[])
     };
     
     self.delete = function(id) {
-      $http.delete('/api/item/' + id);
-      fetchItems();
-      self.currentTab = 'items';
+      $http.delete('/api/item/' + id)
+        .then(fetchItems)
+        .then(
+          function(response) {
+            self.currentTab = 'items';
+          },
+          function(error) {
+            console.log("Error deleting item");
+          });
     };
 
   }]);
