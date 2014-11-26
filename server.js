@@ -1,6 +1,7 @@
 // GeoJSON Example
 
 // see http://mongodb.github.io/node-mongodb-native/api-articles/nodekoarticle1.html
+// and http://mongodb.github.io/node-mongodb-native/1.4/driver-articles/mongoclient.html#mongoclient-connect-options
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require("mongodb").ObjectID;
 
