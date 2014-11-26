@@ -4,13 +4,15 @@
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require("mongodb").ObjectID;
 
-MongoClient.connect("mongodb://localhost:27017/test", function(err,db) {
-  if(!err) {
-    console.log("Connected to db!");
-    items = db.collection('geojson');
-  } else {
-    console.log("Error: " + err);
-  }
+MongoClient.connect("mongodb://localhost:27017/test?",
+  {server: {socketOptions: { socketTimeoutMS: 5000}}},
+  function(err,db) {
+    if(!err) {
+      console.log("Connected to db!");
+      items = db.collection('geojson');
+    } else {
+      console.log("Error: " + err);
+    }
 });
 
 var express = require('express');
