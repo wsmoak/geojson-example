@@ -24,6 +24,7 @@ angular.module('geojsonApp',[])
           self.items = response.data;
         }, 
         function(errResponse) {
+          console.log(errResponse);
           console.error('Error while fetching items');
         }
       );
@@ -55,9 +56,11 @@ angular.module('geojsonApp',[])
         .then(fetchItems)
         .then(
           function(response) {
+            console.log("after delete and fetch");
             self.currentTab = 'items';
           },
           function(error) {
+            console.log(error);
             console.log("Error deleting item");
           });
     };

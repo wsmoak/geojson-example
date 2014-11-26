@@ -5,9 +5,8 @@
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require("mongodb").ObjectID;
 
-// see http://mongodb.github.io/node-mongodb-native/1.4/driver-articles/mongoclient.html#the-url-connection-format
-// see https://jira.mongodb.org/browse/NODE-288
-MongoClient.connect("mongodb://localhost:27017/test?socketTimeoutMS=5000",
+// see http://mongodb.github.io/node-mongodb-native/2.0/tutorials/connection_failures/
+MongoClient.connect("mongodb://localhost:27017/test?autoReconnect=false&bufferMaxEntries=0",
   function(err,db) {
     if(!err) {
       console.log("Connected to db!");
@@ -51,9 +50,13 @@ app.delete('/api/item/:id', jsonParser, function(req,res) {
   items.remove({"_id": ObjectID(req.params.id)},
     function(err,count) {
       console.log("in callback after remove");
-      console.log(err);
-      console.log(count);
-      res.send({"ok":true});
+      if (!err) {
+        console.log(count);
+        res.status(200).json({"ok":count});
+      } else {
+        console.log(err);
+        res.status(500).json({"error":"Internal Server Error"});
+      }
     });
 });
 
