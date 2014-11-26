@@ -5,8 +5,9 @@
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require("mongodb").ObjectID;
 
-MongoClient.connect("mongodb://localhost:27017/test?",
-  {server: {socketOptions: { socketTimeoutMS: 5000}}},
+// see http://mongodb.github.io/node-mongodb-native/1.4/driver-articles/mongoclient.html#the-url-connection-format
+// see https://jira.mongodb.org/browse/NODE-288
+MongoClient.connect("mongodb://localhost:27017/test?socketTimeoutMS=5000",
   function(err,db) {
     if(!err) {
       console.log("Connected to db!");
